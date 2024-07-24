@@ -38,7 +38,7 @@ export default function Login() {
     signInWithEmailAndPassword(auth, values.email, values.password).then((response) => {
       toast({
         className: cn(
-          'bottom-0 left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark'
+          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark'
         ),
         description: "User logged in successfully",
       })
