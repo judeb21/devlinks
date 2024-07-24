@@ -160,7 +160,7 @@ export default function Register() {
                 Create new account
               </Button>
 
-              <p className="text-center">
+              <p className="text-center text-grey-default">
                 {"Already have an account?"}{" "}
                 <Link
                   href={LOGIN_ROUTE}

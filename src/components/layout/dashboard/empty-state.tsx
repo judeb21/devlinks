@@ -6,7 +6,7 @@ export function Empty() {
       <Image
         src="/get-started.svg"
         alt="devlink Logo"
-        className="cursor-pointer md:m-auto"
+        className="cursor-pointer m-auto"
         width={250}
         height={160}
         priority

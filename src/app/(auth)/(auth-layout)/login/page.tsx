@@ -134,7 +134,7 @@ export default function Login() {
                 Login
               </Button>
 
-              <p className="text-center">
+              <p className="text-center text-grey-default">
                 {"Don't have an account?"}{" "}
                 <Link
                   href={REGISTER_ROUTE}

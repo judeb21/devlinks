@@ -27,7 +27,7 @@ export default function Dashboard() {
   return (
     <>
       <div>
-        <div className="p-[40px]">
+        <div className="pt-[40px] md:p-[40px] p-[12px]">
           <h2 className="font-bold text-grey-dark text-[32px] leading-[48px] mb-[9px]">
             Customize your links
           </h2>
@@ -45,7 +45,7 @@ export default function Dashboard() {
           </Button>
         </div>
 
-        <div className="md:min-h-[480px] h-[100%] flex flex-col px-[40px] bg-white justify-start overflow-scroll relative">
+        <div className="md:min-h-[480px] h-[100%] flex flex-col px-[12px] md:px-[40px] bg-white justify-start overflow-scroll relative">
           {selectedPlatforms.length < 1 ? (
             <Empty />
           ) : (

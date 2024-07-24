@@ -35,7 +35,7 @@ export default function Dashboard() {
   return (
     <>
       <div>
-        <div className="p-[40px]">
+        <div className="pt-[40px] md:p-[40px] p-[24px]">
           <h2 className="font-bold text-grey-dark text-[32px] leading-[48px] mb-[9px]">
             Profile Details
           </h2>
@@ -44,8 +44,8 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <div className="md:max-h-[570px] h-[100%] flex flex-col px-[40px] bg-white justify-center">
-          <div className="bg-grey-light p-[20px] rounded-[12px] mb-[24px] flex justify-start gap-[24px] items-center">
+        <div className="md:max-h-[570px] h-[100%] flex flex-col md:px-[40px] px-[24px] bg-white justify-center">
+          <div className="bg-grey-light p-[20px] rounded-[12px] mb-[24px] flex flex-col md:flex-row justify-start gap-[24px] items-center">
             <p className="text-grey-dark md:w-[200px] leading-[24px]">
               Profile picture
             </p>
@@ -90,11 +90,11 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div className="bg-grey-light p-[20px] rounded-[12px] mb-[50px] flex flex-col justify-start gap-[24px] items-center">
-            <div className="flex md:flex-row flex-col w-full max-w-full items-center gap-[16px] mt-[12px]">
+          <div className="bg-grey-light p-[20px] rounded-[12px] mb-[50px] flex flex-col justify-start gap-[12px] md:gap-[24px] items-center">
+            <div className="flex md:flex-row flex-col w-full max-w-full items-center gap-[4px] md:gap-[16px] mt-[12px]">
               <Label
                 htmlFor="firstName"
-                className="text-grey-dark text-[16px] font-normal md:w-[240px] w-full"
+                className="text-grey-dark text-[12px] md:text-[16px] font-normal md:w-[240px] w-full"
               >
                 First name*
               </Label>
@@ -104,14 +104,14 @@ export default function Dashboard() {
                 placeholder="At least 8 characters"
                 autoComplete="off"
                 autoCapitalize="off"
-                className="border-[1px] focus:border-[#633CFF] focus:ring-1 focus:ring-transparent px-[16px] py-[12px] text-grey-dark border-grey-border focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)]"
+                className="border-[1px] h-[48px] focus:border-[#633CFF] focus:ring-1 focus:ring-transparent px-[16px] py-[12px] text-grey-dark border-grey-border focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)]"
               />
             </div>
 
-            <div className="flex md:flex-row flex-col w-full max-w-full items-center gap-[16px] mt-[12px]">
+            <div className="flex md:flex-row flex-col w-full max-w-full items-center gap-[4px] md:gap-[16px] mt-[12px]">
               <Label
                 htmlFor="lastName"
-                className="text-grey-dark text-[16px] font-normal md:w-[240px] w-full"
+                className="text-grey-dark text-[12px] md:text-[16px] font-normal md:w-[240px] w-full"
               >
                 Last name*
               </Label>
@@ -121,14 +121,14 @@ export default function Dashboard() {
                 placeholder="At least 8 characters"
                 autoComplete="off"
                 autoCapitalize="off"
-                className="border-[1px] focus:border-[#633CFF] focus:ring-1 focus:ring-transparent px-[16px] py-[12px] text-grey-dark border-grey-border focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)]"
+                className="border-[1px] h-[48px] focus:border-[#633CFF] focus:ring-1 focus:ring-transparent px-[16px] py-[12px] text-grey-dark border-grey-border focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)]"
               />
             </div>
 
-            <div className="flex md:flex-row flex-col w-full max-w-full items-center gap-[16px] mt-[12px]">
+            <div className="flex md:flex-row flex-col w-full max-w-full items-center gap-[4px] md:gap-[16px] mt-[12px]">
               <Label
                 htmlFor="email"
-                className="text-grey-dark text-[16px] font-normal md:w-[240px] w-full"
+                className="text-grey-dark text-[12px] md:text-[16px] font-normal md:w-[240px] w-full"
               >
                 Email*
               </Label>
@@ -140,7 +140,7 @@ export default function Dashboard() {
                 autoCapitalize="off"
                 value={user?.email as string}
                 readOnly={true}
-                className="border-[1px] focus:border-[#633CFF] focus:ring-1 focus:ring-transparent px-[16px] py-[12px] text-grey-dark border-grey-border focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)]"
+                className="border-[1px] h-[48px] focus:border-[#633CFF] focus:ring-1 focus:ring-transparent px-[16px] py-[12px] text-grey-dark border-grey-border focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)]"
               />
             </div>
           </div>

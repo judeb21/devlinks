@@ -9,7 +9,7 @@ export default function Home() {
         <Image
           src="/logo.svg"
           alt="devlink Logo"
-          className="cursor-pointer m-auto"
+          className="cursor-pointer md:m-auto"
           width={182}
           height={40}
           priority
