@@ -87,7 +87,7 @@ export default function Register() {
                           autoComplete="off"
                           autoCapitalize="off"
                           {...field}
-                          className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0"
+                          className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0 text-grey-dark"
                         />
                       </div>
                     </FormControl>
@@ -113,7 +113,7 @@ export default function Register() {
                           autoComplete="off"
                           autoCapitalize="off"
                           {...field}
-                          className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0"
+                          className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0 text-grey-dark"
                         />
                       </div>
                     </FormControl>
@@ -139,7 +139,7 @@ export default function Register() {
                           autoComplete="off"
                           autoCapitalize="off"
                           {...field}
-                          className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0"
+                          className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0 text-grey-dark"
                         />
                       </div>
                     </FormControl>
