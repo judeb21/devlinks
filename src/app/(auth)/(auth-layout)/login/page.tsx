@@ -38,9 +38,9 @@ export default function Login() {
     signInWithEmailAndPassword(auth, values.email, values.password).then((response) => {
       toast({
         className: cn(
-          'bottom-0 left-[36%] flex fixed md:max-w-[420px] md:bottom-4'
+          'bottom-0 left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark'
         ),
-        description: "User registered successfully",
+        description: "User logged in successfully",
       })
       const userResponse: ExtendedUser = response?.user;
       setUser(userResponse);

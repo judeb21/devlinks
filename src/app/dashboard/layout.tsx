@@ -103,6 +103,10 @@ export default function RootLayout({
                       stroke="#737373"
                     />
                   </svg>
+                  <div className="absolute md:w-[250px] max-h-[580px] h-[100%]">
+                    <h4>Image</h4>
+                    <div className="relative h-[100%] overflow-scroll"></div>
+                  </div>
                 </div>
                 <div className="w-full md:w-full rounded-[12px] bg-white">
                   {children}
