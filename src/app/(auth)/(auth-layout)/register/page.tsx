@@ -46,7 +46,7 @@ export default function Register() {
       toast({
         variant: "destructive",
         className: cn(
-          'bottom-0 left-[36%] flex fixed md:max-w-[406px] md:bottom-4 bg-error-default rounded-[12px]'
+          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[406px] md:bottom-4 bg-error-default rounded-[12px]'
         ),
         description: `${e?.message}`,
       })
