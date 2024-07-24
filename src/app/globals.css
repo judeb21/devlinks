@@ -2,10 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --background-full: 250, 250, 250;
+  
+    --purple: 99, 60, 255;
+    --purple-hover: 190, 173, 255;
+    --light-purple: 239, 235, 255;
+  
+    --grey: 115, 115, 115;
+    --dark-grey: 51, 51, 51;
+    --border-grey: 217, 217, 217;
+    --light-grey: 250, 250, 250;
+  
+    --white: 255, 255, 255;
+    --red: 255, 57, 57;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,12 +33,25 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-full));
+}
+
+.nav:hover svg {
+  fill: rgb(var(--purple));
+}
+
+.nav svg {
+  fill: rgb(var(--purple));
+}
+
+div[aria-invalid="true"] {
+  border: 1px solid rgb(var(--red));
+}
+
+@media (max-width: 991px) {
+  body {
+    background: rgb(var(--light-grey));
+  }
 }
 
 @layer utilities {
