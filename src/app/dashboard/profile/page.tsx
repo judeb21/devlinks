@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useAuthContext } from "@/context/AuthContext";
 
-export const convertToBase64 = (file: any) =>
+const convertToBase64 = (file: any) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader?.readAsDataURL(file);
