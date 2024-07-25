@@ -41,8 +41,9 @@ export function ReorderItems({ item, index }: Props) {
               className="cursor-pointer"
               width={12}
               height={6}
+              onPointerDown={(event) => controls.start(event)}
             />
-            <p className="text-grey-default font-bold leading-[24px]">
+            <p className="text-grey-default font-bold leading-[24px] pointer-events-none">
               Link #{++index}
             </p>
           </div>

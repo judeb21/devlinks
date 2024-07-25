@@ -21,8 +21,9 @@ export default function Dashboard() {
       name: "GitHub",
       value: "github",
       iconName: "",
+      id: ++selectedPlatforms.length
     };
-    setSelectedPlatforms([platform]);
+    setSelectedPlatforms([...selectedPlatforms, platform]);
   };
 
   return (
@@ -103,7 +104,7 @@ export default function Dashboard() {
           </Button>
         </div>
 
-        <div className="md:min-h-[480px] h-[100%] flex flex-col px-[12px] md:px-[40px] bg-white justify-start overflow-scroll relative">
+        <div className="md:max-h-[480px] h-[480px] flex flex-col px-[12px] md:px-[40px] bg-white justify-start overflow-scroll relative">
           {selectedPlatforms.length < 1 ? (
             <Empty />
           ) : (
@@ -115,7 +116,7 @@ export default function Dashboard() {
               style={{ overflowY: "scroll" }}
             >
               {selectedPlatforms.map((item, index) => (
-                <ReorderItems key={index} item={item} index={index} />
+                <ReorderItems key={item.id} item={item} index={index} />
               ))}
             </Reorder.Group>
           )}
