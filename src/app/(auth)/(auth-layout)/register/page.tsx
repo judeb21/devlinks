@@ -33,7 +33,7 @@ export default function Register() {
     createUserWithEmailAndPassword(auth, values.email, values.password).then((response) => {
       toast({
         className: cn(
-          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark'
+          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark text-white-default'
         ),
         description: "User registered successfully",
       })
@@ -46,7 +46,7 @@ export default function Register() {
       toast({
         variant: "destructive",
         className: cn(
-          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[406px] md:bottom-4 bg-error-default rounded-[12px]'
+          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[406px] md:bottom-4 bg-error-default rounded-[12px] text-white-default'
         ),
         description: `${e?.message}`,
       })

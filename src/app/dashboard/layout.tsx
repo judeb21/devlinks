@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 import { LINK_ROUTE, PROFILE_ROUTE } from "@/constants/routes";
 import { Toaster } from "@/components/ui/toaster"
 import { AuthContextProvider } from "@/context/AuthContext";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const inter = Instrument_Sans({ subsets: ["latin"] });
 
@@ -50,7 +49,7 @@ export default function RootLayout({
                 </NavLink>
 
                 <div className="flex gap-[16px]">
-                  <Button asChild className="md:block hidden">
+                  <Button asChild className="md:flex hidden">
                     <NavLink
                       href={LINK_ROUTE}
                       className={`flex gap-[8px] transition ease-in-out hover:text-primary-purple duration-300 ${
@@ -77,7 +76,7 @@ export default function RootLayout({
                     </NavLink>
                   </Button>
 
-                  <Button asChild className="md:block hidden">
+                  <Button asChild className="md:flex hidden">
                     <NavLink
                       href={PROFILE_ROUTE}
                       className={`flex gap-[8px] transition ease-in-out hover:text-primary-purple duration-300 ${
@@ -134,64 +133,7 @@ export default function RootLayout({
             {/* Body */}
             <div className="md:max-w-[1440px] w-full flex items-center justify-center">
               <div className="w-full ml-[24px] md:mr-[24px] flex items-center justify-start gap-[24px] mb-[24px]">
-                <div className="w-[0px] hidden md:w-full md:block md:max-w-[580px] md:p-[100px] md:rounded-[12px] bg-white flex items-center justify-center relative">
-                  <svg
-                    width="308"
-                    height="632"
-                    viewBox="0 0 308 632"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="relative overflow-scroll"
-                  >
-                    <path
-                      d="M1 54.5C1 24.9528 24.9528 1 54.5 1H253.5C283.047 1 307 24.9528 307 54.5V577.5C307 607.047 283.047 631 253.5 631H54.5C24.9528 631 1 607.047 1 577.5V54.5Z"
-                      stroke="#737373"
-                    />
-                    <path
-                      d="M12 55.5C12 30.9233 31.9233 11 56.5 11H80.5C86.8513 11 92 16.1487 92 22.5C92 30.5081 98.4919 37 106.5 37H201.5C209.508 37 216 30.5081 216 22.5C216 16.1487 221.149 11 227.5 11H251.5C276.077 11 296 30.9233 296 55.5V576.5C296 601.077 276.077 621 251.5 621H56.5C31.9233 621 12 601.077 12 576.5V55.5Z"
-                      fill="white"
-                      stroke="#737373"
-                    />
-                  </svg>
-                  <div className="absolute w-[0] md:w-[250px] max-h-[580px] h-[100%]">
-                    <div className="relative hidden md:block h-[100%] overflow-scroll flex flex-col justify-start items-center">
-                      <div className="mt-[54px]">
-                        <Skeleton className="h-[96px] w-[96px] rounded-full bg-[#EEEEEE]" />
-                      </div>
-
-                      <div className="mt-[25px] mb-[13px]">
-                        {<Skeleton className="h-[16px] w-[160px] rounded-full bg-[#EEEEEE]" />}
-                      </div>
-
-                      <div className="mb-[56px]">
-                        <Skeleton className="h-[8px] w-[72px] rounded-full bg-[#EEEEEE]" />
-                      </div>
-                      
-                      <div className="mb-[20px]">
-                        <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-                      </div>
-
-                      <div className="mb-[20px]">
-                        <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-                      </div>
-
-                      <div className="mb-[20px]">
-                        <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-                      </div>
-
-                      <div className="mb-[20px]">
-                        <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-                      </div>
-
-                      <div className="mb-[20px]">
-                        <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="w-full md:w-full rounded-[12px] bg-white">
-                  {children}
-                </div>
+                {children}
                 <Toaster />
               </div>
             </div>
