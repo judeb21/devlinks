@@ -1,0 +1,14 @@
+export const GithubLogo = require('../../public/transIcons/github-logo-fill.svg');
+export const TwitterLogo = require('../../public/transIcons/twitter-logo-fill.svg');
+export const MentorLogo = require('../../public/transIcons/mentor-logo-fill.svg');
+export const LinkedinLogo = require('../../public/transIcons/linkedin-logo-fill.svg');
+export const YoutubeLogo = require('../../public/transIcons/youtube-logo-fill.svg');
+export const FacebookLogo = require('../../public/transIcons/facebook-logo-fill.svg');
+export const TwitchLogo = require('../../public/transIcons/twitch-logo-fill.svg');
+export const DevToLogo = require('../../public/transIcons/dev-logo-fill.svg');
+export const CodewarLogo = require('../../public/transIcons/codewars-logo-fill.svg');
+export const CodepenLogo = require('../../public/transIcons/codepen-logo-fill.svg');
+export const FreeCodeCampLogo = require('../../public/transIcons/freecodecamp-logo-fill.svg');
+export const GitLabLogo = require('../../public/transIcons/gitlab-logo-fill.svg');
+export const HashnodeLogo = require('../../public/transIcons/hashnode-logo-fill.svg');
+export const StackOverflowLogo = require('../../public/transIcons/stackoverflow-logo-fill.svg');

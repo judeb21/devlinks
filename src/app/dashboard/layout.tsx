@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import NavLink from "next/link";
 import { Eye, Link, UserCircle } from "@phosphor-icons/react/dist/ssr";
 import { usePathname } from "next/navigation";
-import { LINK_ROUTE, PROFILE_ROUTE } from "@/constants/routes";
-import { Toaster } from "@/components/ui/toaster"
+import { LINK_ROUTE, PREVIEW_ROUTE, PROFILE_ROUTE } from "@/constants/routes";
+import { Toaster } from "@/components/ui/toaster";
 import { AuthContextProvider } from "@/context/AuthContext";
 
 const inter = Instrument_Sans({ subsets: ["latin"] });
@@ -115,10 +115,16 @@ export default function RootLayout({
                 </div>
 
                 <Button
+                  asChild
                   variant="outline"
                   className="border-primary-purple text-primary-purple transition ease-in-out hover:bg-primary-light duration-300 md:block hidden"
                 >
-                  Preview
+                  <NavLink
+                    href={PREVIEW_ROUTE}
+                    className={`flex gap-[8px] transition ease-in-out hover:text-primary-purple duration-300`}
+                  >
+                    Preview
+                  </NavLink>
                 </Button>
 
                 <Button

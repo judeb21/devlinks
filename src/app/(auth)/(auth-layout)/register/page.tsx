@@ -33,7 +33,7 @@ export default function Register() {
     createUserWithEmailAndPassword(auth, values.email, values.password).then((response) => {
       toast({
         className: cn(
-          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark text-white-default'
+          'bottom-0 left-0 md:left-[36%] flex fixed md:max-w-[420px] md:bottom-4 bg-grey-dark text-white'
         ),
         description: "User registered successfully",
       })
