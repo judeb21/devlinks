@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Plus } from "@phosphor-icons/react/dist/ssr";
-import { usePathname } from "next/navigation";
 import { Empty } from "@/components/layout/dashboard/empty-state";
 import { useState } from "react";
 import { Reorder } from "framer-motion";
@@ -21,10 +20,14 @@ export default function Dashboard() {
       name: "GitHub",
       value: "github",
       iconName: "",
-      id: ++selectedPlatforms.length
+      id: selectedPlatforms.length + 1
     };
     setSelectedPlatforms([...selectedPlatforms, platform]);
   };
+
+  const removeLink = (id: number | string) => {
+    setSelectedPlatforms(selectedPlatforms.filter(platform => platform.id !== id));
+  }
 
   return (
     <>
@@ -116,7 +119,7 @@ export default function Dashboard() {
               style={{ overflowY: "scroll" }}
             >
               {selectedPlatforms.map((item, index) => (
-                <ReorderItems key={item.id} item={item} index={index} />
+                <ReorderItems key={item.id} item={item} index={index} removeLink={removeLink} />
               ))}
             </Reorder.Group>
           )}

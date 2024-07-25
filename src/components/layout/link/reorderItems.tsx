@@ -17,11 +17,12 @@ import { platforms } from "@/helpers/platform";
 interface Props {
   item: PlatformTypes;
   index: number;
+  removeLink: (id: number | string) => void; 
 }
 
-export function ReorderItems({ item, index }: Props) {
+export function ReorderItems({ item, index, removeLink }: Props) {
   const controls = useDragControls();
-
+  const neWIndex = index + 1;
   return (
     <Reorder.Item
       key={index}
@@ -44,10 +45,13 @@ export function ReorderItems({ item, index }: Props) {
               onPointerDown={(event) => controls.start(event)}
             />
             <p className="text-grey-default font-bold leading-[24px] pointer-events-none">
-              Link #{++index}
+              Link #{neWIndex}
             </p>
           </div>
-          <p className="text-grey-default font-normal leading-[24px] cursor-pointer">
+          <p 
+            className="text-grey-default font-normal leading-[24px] cursor-pointer"
+            onClick={() => removeLink(item.id as number)}
+          >
             Remove
           </p>
         </div>
@@ -61,23 +65,23 @@ export function ReorderItems({ item, index }: Props) {
           </Label>
           <div className="flex w-full max-w-full items-center gap-[12px]">
             <Select>
-              <SelectTrigger className="w-full h-[48px] rounded-[8px] border-[1px] border-grey-border bg-white focus:border-[#633CFF] focus:ring-1 focus:ring-transparent focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)] text-grey-dark">
+              <SelectTrigger className="w-full h-[48px] rounded-[8px] border-[1px] border-grey-border bg-white focus:border-[#633CFF] focus:ring-1 focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)] text-grey-dark">
                 <SelectValue
                   className="text-grey-dark"
                   placeholder="Select platform"
                 />
               </SelectTrigger>
-              <SelectContent className="bg-white z-10 p-[16px]">
+              <SelectContent className="bg-white z-10 p-[16px] w-full">
                 <SelectGroup className="p-0 m0">
                   {platforms.map((platform, index) => {
                     return (
                       <>
                         <SelectItem
                           value={platform.value}
-                          className="text-grey-dark leading-[24px]"
+                          className="text-grey-dark leading-[24px] w-full cursor-pointer"
                           key={index}
                         >
-                          <div className="flex items-center text-grey-dark leading-[24px] gap-[12px]">
+                          <div className="w-full flex items-center text-grey-dark leading-[24px] gap-[12px]">
                             <Image
                               src={platform.iconName}
                               alt="platform icon"
