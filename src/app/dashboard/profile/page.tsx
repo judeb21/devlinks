@@ -114,7 +114,7 @@ export default function Dashboard() {
                 <Image
                   src={`${user?.photoURL ? user?.photoURL : profilPic}`}
                   alt="upload image"
-                  className="cursor-pointer rounded-[12px] w-[96px] rounded-[100%] h-[96px] object-cover border-[4px] border-primary-purple"
+                  className="cursor-pointer w-[96px] rounded-[100%] h-[96px] object-cover border-[4px] border-primary-purple"
                   width={96}
                   height={96}
                   onClick={handleFileInput}

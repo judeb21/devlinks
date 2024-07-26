@@ -8,6 +8,9 @@ import { ReorderItems } from "@/components/layout/link/reorderItems";
 import { useAuthContext } from "@/context/AuthContext";
 import { PlatformTypes } from "@/types/platform";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
+import Link from "next/link";
+import RightCaret from "../../../../public/right-caret.svg";
 
 export default function Dashboard() {
   const [selectedPlatforms, setSelectedPlatforms] = useState<
@@ -17,17 +20,47 @@ export default function Dashboard() {
 
   const addPlatforms = () => {
     const platform: PlatformTypes = {
-      name: "GitHub",
-      value: "github",
+      name: "",
+      value: "",
       iconName: "",
-      id: selectedPlatforms.length + 1
+      id: selectedPlatforms.length + 1,
     };
     setSelectedPlatforms([...selectedPlatforms, platform]);
   };
 
   const removeLink = (id: number | string) => {
-    setSelectedPlatforms(selectedPlatforms.filter(platform => platform.id !== id));
-  }
+    setSelectedPlatforms(
+      selectedPlatforms.filter((platform) => platform.id !== id)
+    );
+  };
+
+  const setPlatform = (id: number | string, value: string) => {
+    let platform = selectedPlatforms.find(
+      (item) => item.id === id
+    ) as PlatformTypes;
+
+    if (platform) {
+      platform.name = value as string;
+
+      setSelectedPlatforms([...selectedPlatforms, platform]);
+
+      return;
+    }
+  };
+
+  const setPlatformUrl = (id: number | string, value: string) => {
+    let platform = selectedPlatforms.find(
+      (item) => item.id === id
+    ) as PlatformTypes;
+
+    if (platform) {
+      platform.value = value as string;
+
+      setSelectedPlatforms([...selectedPlatforms, platform]);
+
+      return;
+    }
+  };
 
   return (
     <>
@@ -53,38 +86,74 @@ export default function Dashboard() {
         <div className="absolute w-[0] md:w-[250px] max-h-[580px] h-[100%] top-[140px] md:auto left-[22%]">
           <div className="relative hidden md:flex h-[100%] overflow-scroll flex flex-col justify-start items-center">
             <div className="mt-[40px]">
-              <Skeleton className="h-[96px] w-[96px] rounded-full bg-[#EEEEEE]" />
+              {user?.photoURL ? (
+                <Image
+                  src={`${user?.photoURL}`}
+                  alt="upload image"
+                  className="cursor-pointer w-[96px] rounded-[100%] h-[96px] object-cover border-[4px] border-primary-purple"
+                  width={96}
+                  height={96}
+                />
+              ) : (
+                <Skeleton className="h-[96px] w-[96px] rounded-full bg-[#EEEEEE]" />
+              )}
             </div>
 
             <div className="mt-[25px] mb-[13px]">
-              {
+              {user?.displayName ? (
+                <h4 className="text-grey-dark text-[18px]">
+                  {user?.displayName}
+                </h4>
+              ) : (
                 <Skeleton className="h-[16px] w-[160px] rounded-full bg-[#EEEEEE]" />
-              }
+              )}
             </div>
 
             <div className="mb-[56px]">
-              <Skeleton className="h-[8px] w-[72px] rounded-full bg-[#EEEEEE]" />
+              {user?.email ? (
+                <p className="text-grey-default text-[14px]">{user?.email}</p>
+              ) : (
+                <Skeleton className="h-[8px] w-[72px] rounded-full bg-[#EEEEEE]" />
+              )}
             </div>
 
-            <div className="mb-[20px]">
-              <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-            </div>
-
-            <div className="mb-[20px]">
-              <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-            </div>
-
-            <div className="mb-[20px]">
-              <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-            </div>
-
-            <div className="mb-[20px]">
-              <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-            </div>
-
-            <div className="mb-[20px]">
-              <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
-            </div>
+            {selectedPlatforms.map((items, index) => {
+              return (
+                <>
+                  <div className="mb-[20px]" key={index}>
+                    {items.name !== "" ? (
+                      <>
+                        <Link
+                          className={`${items.value} w-[237px] flex justify-between items-center bg-[#000] p-[16px] rounded-[8px] mb-[20px] cursor-pointer`}
+                          href="#"
+                          target="_blank"
+                        >
+                          <div className="flex gap-[8px]">
+                            <Image
+                              src={items.iconName}
+                              height={20}
+                              width={20}
+                              alt="Platform icon"
+                            />
+                            <h4 className="text-white text-[15px]">GitHub</h4>
+                          </div>
+                          <div>
+                            <Image
+                              src={RightCaret}
+                              height={16}
+                              width={16}
+                              alt="right caret icon to view link"
+                            />
+                          </div>
+                        </Link>
+                      </>
+                    ) : (
+                      <Skeleton className="h-[44px] w-[237px] rounded-[8px] bg-[#EEEEEE]" />
+                    )}
+                  </div>
+                </>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -119,7 +188,14 @@ export default function Dashboard() {
               style={{ overflowY: "scroll" }}
             >
               {selectedPlatforms.map((item, index) => (
-                <ReorderItems key={item.id} item={item} index={index} removeLink={removeLink} />
+                <ReorderItems
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  removeLink={removeLink}
+                  setPlatform={setPlatform}
+                  setPlatformUrl={setPlatformUrl}
+                />
               ))}
             </Reorder.Group>
           )}

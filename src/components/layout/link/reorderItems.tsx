@@ -17,10 +17,18 @@ import { platforms } from "@/helpers/platform";
 interface Props {
   item: PlatformTypes;
   index: number;
-  removeLink: (id: number | string) => void; 
+  removeLink: (id: number | string) => void;
+  setPlatform: (id: number | string, value: string) => void;
+  setPlatformUrl: (id: number | string, value: string) => void;
 }
 
-export function ReorderItems({ item, index, removeLink }: Props) {
+export function ReorderItems({
+  item,
+  index,
+  removeLink,
+  setPlatform,
+  setPlatformUrl,
+}: Props) {
   const controls = useDragControls();
   const neWIndex = index + 1;
   return (
@@ -48,7 +56,7 @@ export function ReorderItems({ item, index, removeLink }: Props) {
               Link #{neWIndex}
             </p>
           </div>
-          <p 
+          <p
             className="text-grey-default font-normal leading-[24px] cursor-pointer"
             onClick={() => removeLink(item.id as number)}
           >
@@ -64,7 +72,7 @@ export function ReorderItems({ item, index, removeLink }: Props) {
             Platform
           </Label>
           <div className="flex w-full max-w-full items-center gap-[12px]">
-            <Select>
+            <Select onValueChange={(e) => setPlatform(item.id as number, e)}>
               <SelectTrigger className="w-full h-[48px] rounded-[8px] border-[1px] border-grey-border bg-white focus:border-[#633CFF] focus:ring-1 focus:shadow-[0_0_32px_0_rgba(99,60,255,0.25)] text-grey-dark">
                 <SelectValue
                   className="text-grey-dark"
@@ -105,6 +113,7 @@ export function ReorderItems({ item, index, removeLink }: Props) {
               placeholder={`e.g. https://www.${item.value}.com/johnappleseed`}
               autoComplete="off"
               autoCapitalize="off"
+              onChange={(e) => setPlatformUrl(item.id as number, e.target.value)}
               className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0 text-grey-dark"
             />
           </div>
