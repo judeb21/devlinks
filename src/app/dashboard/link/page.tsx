@@ -11,6 +11,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 import RightCaret from "../../../../public/right-caret.svg";
+import { platforms } from "@/helpers/platform";
+import { platformsIcons } from "@/helpers/platformIcons";
 
 export default function Dashboard() {
   const [selectedPlatforms, setSelectedPlatforms] = useState<
@@ -35,17 +37,26 @@ export default function Dashboard() {
   };
 
   const setPlatform = (id: number | string, value: string) => {
-    let platform = selectedPlatforms.find(
-      (item) => item.id === id
-    ) as PlatformTypes;
+    let filteredPlatform: Array<PlatformTypes> = selectedPlatforms.filter(
+      (item) => item.id !== id
+    );
 
-    if (platform) {
-      platform.name = value as string;
+    console.log("Value", value);
 
-      setSelectedPlatforms([...selectedPlatforms, platform]);
+    let platformIcon = platformsIcons.filter(item => item.name === value);
 
-      return;
-    }
+    console.log("Icon", platformIcon);
+
+    const newPlatform = {
+      name: value,
+      value: "",
+      iconName: platformIcon[0]?.iconName,
+      id: Number(id)
+    } as PlatformTypes
+
+    setSelectedPlatforms([...filteredPlatform, newPlatform]);
+
+    return;
   };
 
   const setPlatformUrl = (id: number | string, value: string) => {
@@ -53,13 +64,18 @@ export default function Dashboard() {
       (item) => item.id === id
     ) as PlatformTypes;
 
-    if (platform) {
-      platform.value = value as string;
+    let selectedPlatform: Array<PlatformTypes> = selectedPlatforms.filter(
+      (item) => item.id !== id
+    );
 
-      setSelectedPlatforms([...selectedPlatforms, platform]);
+    const newPlatform = {
+      name: platform.name,
+      value: value,
+      iconName: platform.iconName,
+      id: Number(id)
+    } as PlatformTypes
 
-      return;
-    }
+    setSelectedPlatforms([...selectedPlatform, newPlatform]);
   };
 
   return (
@@ -83,7 +99,7 @@ export default function Dashboard() {
             stroke="#737373"
           />
         </svg>
-        <div className="absolute w-[0] md:w-[250px] max-h-[580px] h-[100%] top-[140px] md:auto left-[22%]">
+        <div className="absolute w-[0] md:w-[250px] max-h-[560px] h-[100%] top-[140px] md:auto left-[22%]">
           <div className="relative hidden md:flex h-[100%] overflow-scroll flex flex-col justify-start items-center">
             <div className="mt-[40px]">
               {user?.photoURL ? (
@@ -124,8 +140,8 @@ export default function Dashboard() {
                     {items.name !== "" ? (
                       <>
                         <Link
-                          className={`${items.value} w-[237px] flex justify-between items-center bg-[#000] p-[16px] rounded-[8px] mb-[20px] cursor-pointer`}
-                          href="#"
+                          className={`${items.name} w-[237px] flex justify-between items-center p-[16px] rounded-[8px] cursor-pointer`}
+                          href={items.value as string}
                           target="_blank"
                         >
                           <div className="flex gap-[8px]">
@@ -135,7 +151,7 @@ export default function Dashboard() {
                               width={20}
                               alt="Platform icon"
                             />
-                            <h4 className="text-white text-[15px]">GitHub</h4>
+                            <h4 className="text-white text-[15px]">{items.name}</h4>
                           </div>
                           <div>
                             <Image

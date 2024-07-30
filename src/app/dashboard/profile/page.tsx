@@ -107,7 +107,7 @@ export default function Dashboard() {
             stroke="#737373"
           />
         </svg>
-        <div className="absolute w-[0] md:w-[250px] max-h-[580px] h-[100%] top-[140px] md:auto left-[22%]">
+        <div className="absolute w-[0] md:w-[250px] max-h-[560px] h-[100%] top-[140px] md:auto left-[22%]">
           <div className="relative hidden md:flex h-[100%] overflow-scroll flex flex-col justify-start items-center">
             <div className="mt-[40px]">
               {user?.photoURL || profilPic ? (

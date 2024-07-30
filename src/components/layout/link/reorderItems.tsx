@@ -85,7 +85,7 @@ export function ReorderItems({
                     return (
                       <>
                         <SelectItem
-                          value={platform.value}
+                          value={platform.name}
                           className="text-grey-dark leading-[24px] w-full cursor-pointer"
                           key={index}
                         >
@@ -110,11 +110,11 @@ export function ReorderItems({
             <Link size={16} weight="thin" color="rgb(var(--grey))" />
             <Input
               type="text"
-              placeholder={`e.g. https://www.${item.value}.com/johnappleseed`}
+              placeholder={`e.g. https://www.${item.name}.com/johnappleseed`}
               autoComplete="off"
               autoCapitalize="off"
               onChange={(e) => setPlatformUrl(item.id as number, e.target.value)}
-              className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0 text-grey-dark"
+              className="border-0 focus:outline-none focus:border-white focus:ring-1 focus:ring-transparent pl-0 ml-0 text-grey-dark lowercase"
             />
           </div>
         </div>

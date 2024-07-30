@@ -48,6 +48,18 @@ div[aria-invalid="true"] {
   border: 1px solid rgb(var(--red));
 }
 
+.GitHub {
+  background: #000;
+}
+
+.YouTube {
+  background: rgb(var(--red));
+}
+
+.Twitter {
+  background: rgba(67, 183, 233, 1);
+}
+
 @media (max-width: 991px) {
   body {
     background: rgb(var(--light-grey));
